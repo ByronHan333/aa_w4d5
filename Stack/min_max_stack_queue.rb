@@ -16,17 +16,15 @@ class StackQueue
   end
 
   def peek
-    if @out_stack.empty?
-      return @in_stack.peek
-    else
-      return @out_stack.peek
-    end
+    populate_outstack if @out_stack.empty?
+    return @out_stack.peek
   end
 
   def enqueue(ele)
     if @in_stack.empty? && !@out_stack.empty?
-      last_ele = @in_stack[0]
+      last_ele = @out_stack[0]
       _, min, max = last_ele
+      @in_stack.push(ele, min, max)
     else
       @in_stack.push(ele)
     end
@@ -49,10 +47,10 @@ class StackQueue
   end
 
   def min
-
+    peek[1]
   end
 
   def max
-
+    peek[2]
   end
 end
