@@ -1,6 +1,6 @@
 require_relative 'my_stack'
 
-class StackQueue
+class MinMaxStackQueue
 
   def initialize
     @in_stack = MinMaxStack.new
@@ -54,3 +54,5 @@ class StackQueue
     peek[2]
   end
 end
+
+mmsq = MinMaxStack
