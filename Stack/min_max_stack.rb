@@ -1,5 +1,7 @@
 class MinMaxStack
 
+    attr_reader :store
+
     def initialize
         @store = []
     end
@@ -43,12 +45,14 @@ class MinMaxStack
 
 end
 
-mms = MinMaxStack.new
-p mms.push(1)
-p mms.push(10)
-p mms.push(-5)
-p mms.push(2)
-p mms.push(15)
-p mms.push(-10)
-p mms.min
-p mms.max
+if __file__ = $FILE_NAME
+    mms = MinMaxStack.new
+    p mms.push(1)
+    p mms.push(10)
+    p mms.push(-5)
+    p mms.push(2)
+    p mms.push(15)
+    p mms.push(-10)
+    p mms.min
+    p mms.max
+end

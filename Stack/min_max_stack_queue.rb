@@ -1,6 +1,7 @@
-require_relative 'my_stack'
+require_relative 'min_max_stack'
 
 class MinMaxStackQueue
+  attr_reader :in_stack, :out_stack
 
   def initialize
     @in_stack = MinMaxStack.new
@@ -42,17 +43,29 @@ class MinMaxStackQueue
   def populate_outstack
     until @in_stack.empty?
       ele = @in_stack.pop
-      @out_stack.push(ele)
+      @out_stack.push(*ele)
     end
   end
 
-  def min
-    peek[1]
-  end
+  # def min
+  #   self.peek[1]
+  # end
 
-  def max
-    peek[2]
-  end
+  # def max
+  #   self.peek[2]
+  # end
 end
 
-mmsq = MinMaxStack
+mmsq = MinMaxStackQueue.new
+mmsq.enqueue(1)
+mmsq.enqueue(2)
+mmsq.enqueue(3)
+mmsq.enqueue(4)
+mmsq.dequeue
+p "here"
+# print "#{mmsq.in_stack.store} \n"
+print "#{mmsq.out_stack.store} \n"
+print "#{mmsq.peek} \n"
+# mmsq.populate_outstack
+p mmsq.min
+p mmsq.max
